@@ -94,18 +94,18 @@ for index, company in companies.iterrows():
     # Until here we have obtained all data for a company
     # Now set the data with the correct format to english notation for pandas
     df_pandas = pd.DataFrame(df, columns=['Hour', 'Prize', 'Volume', 'Id'])
-    df_pandas['Precio'] = pd.to_numeric(df_pandas['Precio'].str.replace(',', '.'), errors='coerce')
-    df_pandas['Volumen'] = pd.to_numeric(df_pandas['Volumen'].str.replace('.', ''), errors='coerce')
+    df_pandas['Prize'] = pd.to_numeric(df_pandas['Prize'].str.replace(',', '.'), errors='coerce')
+    df_pandas['Volume'] = pd.to_numeric(df_pandas['Volume'].str.replace('.', ''), errors='coerce')
     df_pandas['Id'] = pd.to_numeric(df_pandas['Id'])
             
     # Order by id
     df_pandas = df_pandas.sort_values(by=['Id'])
     df_pandas = df_pandas.reset_index(drop=True)
 
-    # Damos formato a la fecha para usarlo en el nombre del fichero
-    day = df_pandas['Hora'][0].split(" ")[0].replace('/', '_')
+    # Format to date
+    day = df_pandas['Hour'][0].split(" ")[0].replace('/', '_')
 
-    # GENERAMOS FICHERO EXCEL
+    # Generate excel file
     with pd.ExcelWriter('Results/operations' + ticker + '_' + day + '.xlsx') as writer:
         df_pandas.to_excel(writer, sheet_name='All', engine='xlsxwriter')
 
