@@ -7,6 +7,7 @@ from operator import truediv
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from openpyxl.workbook import Workbook
 
 
 #######################################################
@@ -14,11 +15,6 @@ from bs4 import BeautifulSoup
 #######################################################
 url = "https://www.bolsamadrid.es/esp/aspx/Empresas/Negociaciones.aspx?ISIN="
 companies_to_scraping = 'empresas.json'
-
-#######################################################
-# AUX FUNCTIONS                                       #
-#######################################################
-
 
 
 #######################################################
