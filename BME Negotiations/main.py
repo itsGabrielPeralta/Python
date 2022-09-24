@@ -77,7 +77,7 @@ for index, company in companies.iterrows():
             # }
             # We make this code dynamically for get all pages
 
-            __EVENTTARGET = 'ctl00_Contenido_SiguientesArr'
+            __EVENTTARGET = 'ctl00$Contenido$SiguientesArr'
             __EVENTARGUMENT = ''
             __VIEWSTATE = web_page_soup.find('input', id='__VIEWSTATE')['value']
             __VIEWSTATEGENERATOR = web_page_soup.find_all('input', id='__VIEWSTATEGENERATOR')[0]['value']
